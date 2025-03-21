@@ -47,20 +47,24 @@ public class App { // main의 스캐너를 생성자에 넣어서 사용
 
                 motivationController.list();
 
-            } else if (cmd.equals("update")) {
+            } else if (cmd.contains("modify")) {
 
-                motivationController.update();
+                motivationController.modify(cmd);
 
-            } else if (cmd.equals("del")) {
+            } else if (cmd.contains("detail")) {
 
-                motivationController.del();
+                motivationController.detail(cmd);
 
-            } else {
+            } else if (cmd.contains("delete")) {
 
+                motivationController.delete(cmd);
+
+            }else {
+                System.out.println("==============================");
                 System.out.println("잘못된 명령어입니다.");
                 System.out.println("help : 명령어 도움말");
+                System.out.println("------------------------------");
                 continue;
-
             }
         }
     }

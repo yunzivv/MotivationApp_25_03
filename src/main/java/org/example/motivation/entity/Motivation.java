@@ -3,37 +3,37 @@ package org.example.motivation.entity;
 // motivation 조립용
 public class Motivation {
 
-    public int id;
-    public String source;
-    public String motivation;
+    private int no;
+    private String source;
+    private String motivation;
 
-    public Motivation(int id, String source, String motivation) {
-        this.id = id;
+    public Motivation(int no, String source, String motivation) {
+        this.no = no;
         this.source = source;
         this.motivation = motivation;
     }
 
-    int getNo(){
-        return this.id;
+    public int getNo(){
+        return this.no;
     }
 
-    String getSource(){
+    public String getSource(){
         return this.source;
     }
 
-    String getMotivation(){
+    public String getMotivation(){
         return this.motivation;
     }
 
-    void setId(int id){
-        this.id = id;
+    public void setNo(int no){
+        this.no = no;
     }
 
-    void setSource(String source){
+    public void setSource(String source){
         this.source = source;
     }
 
-    void setMotivation(String motivation){
+    public void setMotivation(String motivation){
         this.motivation = motivation;
     }
 
