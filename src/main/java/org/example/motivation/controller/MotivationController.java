@@ -74,13 +74,21 @@ public class MotivationController {
 
 
     public void modify(String cmd) {
-        System.out.println("====== motivation 수정 =======");
 
-        int modifyNo = Integer.parseInt(cmd.split(" ")[1]);
+        int modifyNo;
+
+        if(cmd.length() > 7) {
+            modifyNo = Integer.parseInt(cmd.split(" ")[1]);
+        } else {
+            System.out.print("수정할 motivation 번호를 입력하세요 : ");
+            modifyNo = sc.nextInt();
+            sc.nextLine();
+        }
 
         for(Motivation motivation : all) {
 
             if(motivation.getNo() == modifyNo) {
+                System.out.printf("==== %d번 motivation 수정 =====\n", modifyNo);
                 System.out.print("New source : ");
                 String newSource = sc.nextLine().trim();
                 motivation.setSource(newSource);
@@ -97,17 +105,24 @@ public class MotivationController {
         }
         System.out.println("존재하지 않는 motivation입니다.");
         System.out.println("------------------------------");
-
     }
 
     public void detail(String cmd) {
 
-        int detailNo = Integer.parseInt(cmd.split(" ")[1]);
-        System.out.printf("==== %d번 motivation 상세 =====\n", detailNo);
+        int detailNo;
+
+        if(cmd.length() > 7) {
+            detailNo = Integer.parseInt(cmd.split(" ")[1]);
+        } else {
+            System.out.print("수정할 motivation 번호를 입력하세요 : ");
+            detailNo = sc.nextInt();
+            sc.nextLine();
+        }
 
         for(Motivation motivation : all) {
 
             if(motivation.getNo() == detailNo) {
+                System.out.printf("==== %d번 motivation 상세 =====\n", detailNo);
                 System.out.printf("No. : %d\n", motivation.getNo());
                 System.out.printf("Source : %s\n", motivation.getSource());
                 System.out.printf("Motivation : %s\n", motivation.getMotivation());
@@ -129,6 +144,7 @@ public class MotivationController {
         } else {
             System.out.print("삭제할 motivation 번호를 입력하세요 : ");
             deleteNo = sc.nextInt();
+            sc.nextLine();
         }
 
         // all 객체 배열을 하나씩 검사해 입력받은 숫자와 같은 번호를 갖고 있는 지 검사
@@ -146,8 +162,5 @@ public class MotivationController {
         // 같은 번호를 찾지 못했다면 실행
         System.out.println("존재하지 않는 motivation입니다.");
         System.out.println("------------------------------");
-
-        // 개행문자 소비
-        sc.nextLine();
     }
 }
