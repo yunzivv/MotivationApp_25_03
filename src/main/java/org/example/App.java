@@ -53,11 +53,11 @@ public class App { // main의 스캐너를 생성자에 넣어서 사용
 
                 motivationController.modify(cmd);
 
-            } else if (cmd.contains("detail")) {
+            } else if (cmd.startsWith("detail")) {
 
                 motivationController.detail(cmd);
 
-            } else if (cmd.contains("delete")) {
+            } else if (cmd.startsWith("delete")) {
 
                 motivationController.delete(cmd);
 
