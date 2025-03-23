@@ -38,7 +38,7 @@ public class MotivationController {
         System.out.println("====== motivation 목록 =======");
         System.out.println(" No.  |  Source  |  Motivation");
         if (all.size() == 0) {
-            System.out.println("========== nothing ===========");
+            System.out.println("---------- nothing -----------");
             return;
         }
         System.out.println("------------------------------");
@@ -105,7 +105,7 @@ public class MotivationController {
         for(Motivation motivation : all) {
 
             if(motivation.getNo() == detailNo) {
-                System.out.printf("%d번 motivation\n", motivation.getNo());
+                System.out.printf("No. : %d\n", motivation.getNo());
                 System.out.printf("Source : %s\n", motivation.getSource());
                 System.out.printf("Motivation : %s\n", motivation.getMotivation());
                 return;

@@ -10,9 +10,11 @@ import java.util.Scanner;
 // motivation 기능용
 public class App { // main의 스캐너를 생성자에 넣어서 사용
 
-    private Scanner sc; // 명령어를 받기 위한 스캐너
+    // 명령어를 받기 위한 스캐너
+    private Scanner sc;
 
-
+    // 생성자
+    // Main 클래스에서 생성한 스캐너 클래스를 매개변수로 받아 사용이 가능
     public App(Scanner sc) {
         this.sc = sc;
     }
