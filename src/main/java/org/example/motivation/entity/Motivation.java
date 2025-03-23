@@ -25,6 +25,8 @@ public class Motivation {
         return this.motivation;
     }
 
+    // motivation을 삭제 했을 경우
+    // 나머지 motivation 번호를 어떻게 구성할 것인지 ??
     public void setNo(int no){
         this.no = no;
     }

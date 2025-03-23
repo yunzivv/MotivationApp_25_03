@@ -14,7 +14,7 @@ public class App { // main의 스캐너를 생성자에 넣어서 사용
     private Scanner sc;
 
     // 생성자
-    // Main 클래스에서 생성한 스캐너 클래스를 매개변수로 받아 사용이 가능
+    // Main 클래스에서 생성한 스캐너 클래스를 매개변수로 받아 스캐너 사용이 가능
     public App(Scanner sc) {
         this.sc = sc;
     }

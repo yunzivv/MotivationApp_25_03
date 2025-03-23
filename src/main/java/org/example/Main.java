@@ -27,9 +27,8 @@ public class Main {
             login = member.Login(sc);
         }
 
-//        로그인에 성공했을 경우만 앱을 실행할 수 있음
-//        member 클래스를 SystemController와 연결
-//        while (login) {
+//        로그인에 성공했을 경우만 앱을 실행할 수 있게
+//        if (login) {
 //            new App(sc).run();
 //        }
 
@@ -56,6 +55,7 @@ class Member {
         String PW = sc.nextLine();
         System.out.println("");
 
+//        구현할 것
 //        for (회원객체 배열 순회) {
 //            if ( 회원의 ID와 중복된다면 ) {
 //              System.out.println("중복된 아이디입니다.");

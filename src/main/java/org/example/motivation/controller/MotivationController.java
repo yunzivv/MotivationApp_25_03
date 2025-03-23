@@ -144,6 +144,7 @@ public class MotivationController {
         } else {
             System.out.print("삭제할 motivation 번호를 입력하세요 : ");
             deleteNo = sc.nextInt();
+            // 버퍼 비우기
             sc.nextLine();
         }
 
