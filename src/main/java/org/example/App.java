@@ -3,7 +3,8 @@ package org.example;
 import org.example.motivation.controller.MotivationController;
 import org.example.system.controller.SystemController;
 
-// motivation 기능용
+// motivation 기능 실행용
+// 메인 루프 존재 -> 매칭 메서드 호출 (길 안내)
 public class App {
 
     public void run() {
@@ -19,6 +20,7 @@ public class App {
             System.out.print("\ncmd : ");
             String cmd = Container.getScanner().nextLine().trim();
 
+            // SystemController
             if (cmd.equals("exit")) {
 
                 systemController.exit();
@@ -27,8 +29,17 @@ public class App {
             } else if (cmd.equals("help")) {
 
                 systemController.help();
+                continue;
 
-            } else if (cmd.equals("add")) {
+            } else if (cmd.isEmpty()) {
+
+                System.out.println("cmd was not entered");
+                continue;
+
+            }
+
+            // MotivationController
+            if (cmd.equals("add")) {
 
                 motivationController.add();
 
@@ -53,7 +64,6 @@ public class App {
                 System.out.println("잘못된 명령어입니다.");
                 System.out.println("help : 명령어 도움말");
                 System.out.println("------------------------------");
-                continue;
             }
         }
     }
