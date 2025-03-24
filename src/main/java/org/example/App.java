@@ -44,13 +44,9 @@ public class App {
 
                 motivationController.detail(cmd);
 
-            } else if (cmd.startsWith("delete ")) {
+            } else if (cmd.startsWith("delete")) {
 
                 motivationController.delete(cmd);
-
-            } else if (cmd.contains("delete?")) {
-
-                motivationController.deleteID(cmd);
 
             } else {
                 System.out.println("==============================");

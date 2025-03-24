@@ -70,9 +70,9 @@ public class MotivationController {
 
         int editNo;
 
-        if(cmd.length() > 5) {
+        try {
             editNo = Integer.parseInt(cmd.split(" ")[1]);
-        } else {
+        } catch (IndexOutOfBoundsException e) {
             System.out.print("수정할 motivation 번호를 입력하세요 : ");
             editNo = Container.getScanner().nextInt();
             Container.getScanner().nextLine();
@@ -107,9 +107,9 @@ public class MotivationController {
 
         int detailNo;
 
-        if(cmd.length() > 7) {
+        try {
             detailNo = Integer.parseInt(cmd.split(" ")[1]);
-        } else {
+        } catch (IndexOutOfBoundsException e) {
             System.out.print("수정할 motivation 번호를 입력하세요 : ");
             detailNo = Container.getScanner().nextInt();
             Container.getScanner().nextLine();
@@ -135,10 +135,10 @@ public class MotivationController {
 
         int deleteNo;
 
-        if(cmd.length() > 7) {
+        try {
             deleteNo = Integer.parseInt(cmd.split(" ")[1]);
-        } else {
-            System.out.print("삭제할 motivation 번호를 입력하세요 : ");
+        } catch (IndexOutOfBoundsException e) {
+            System.out.print("수정할 motivation 번호를 입력하세요 : ");
             deleteNo = Container.getScanner().nextInt();
             Container.getScanner().nextLine();
         }
