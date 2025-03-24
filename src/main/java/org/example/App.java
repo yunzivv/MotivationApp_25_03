@@ -16,6 +16,7 @@ public class App {
 
         System.out.println("help : 명령어 도움말");
 
+        // 메인 루프 -> 매칭 메서드 호출 (길 안내)
         while (true) {
             System.out.print("\ncmd : ");
             String cmd = Container.getScanner().nextLine().trim();
