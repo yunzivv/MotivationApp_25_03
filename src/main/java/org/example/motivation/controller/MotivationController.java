@@ -83,19 +83,34 @@ public class MotivationController {
         if (motivation == null) {
             System.out.println("존재하지 않는 motivation입니다.");
             System.out.println("------------------------------");
+            return;
         }
 
         System.out.printf("==== %d번 motivation 수정 =====\n", editNo);
 
-        System.out.printf("Now source : %s\n", motivation.getSource());
-        System.out.print("New source : ");
-        String newSource = Container.getScanner().nextLine().trim();
-        motivation.setSource(newSource);
+        String newSource;
+        String newMotivation;
+
+        while(true) {
+            System.out.print("New source : ");
+            newSource = Container.getScanner().nextLine().trim();
+            if (!newSource.isEmpty()) {
+                motivation.setSource(newSource);
+                break;
+            }
+            System.out.println("수정사항이 입력되지 않았습니다.");
+        }
 
         System.out.printf("Now motivation : %s\n", motivation.getMotivation());
-        System.out.print("New motivation : ");
-        String newMotivation = Container.getScanner().nextLine().trim();
-        motivation.setMotivation(newMotivation);
+        while(true) {
+            System.out.print("New motivation : ");
+            newMotivation = Container.getScanner().nextLine().trim();
+            if (!newMotivation.isEmpty()) {
+                motivation.setMotivation(newMotivation);
+                break;
+            }
+            System.out.println("수정사항이 입력되지 않았습니다.");
+        }
 
         System.out.printf("%d번 motivation이 수정되었습니다.\n", editNo);
         System.out.println("------------------------------");
