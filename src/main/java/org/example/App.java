@@ -57,11 +57,15 @@ public class App { // main의 스캐너를 생성자에 넣어서 사용
 
                 motivationController.detail(cmd);
 
-            } else if (cmd.startsWith("delete")) {
+            } else if (cmd.startsWith("delete ")) {
 
                 motivationController.delete(cmd);
 
-            }else {
+            } else if (cmd.contains("delete?")) {
+
+                motivationController.deleteID(cmd);
+
+            } else {
                 System.out.println("==============================");
                 System.out.println("잘못된 명령어입니다.");
                 System.out.println("help : 명령어 도움말");

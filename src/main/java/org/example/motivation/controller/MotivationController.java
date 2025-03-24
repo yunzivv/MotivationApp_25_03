@@ -164,4 +164,24 @@ public class MotivationController {
         System.out.println("존재하지 않는 motivation입니다.");
         System.out.println("------------------------------");
     }
+
+    public void deleteID(String cmd) {
+
+        int deleteNo = Integer.parseInt(cmd.split("\\?id=")[1]);
+
+        for(Motivation motivation : all) {
+
+            if(motivation.getNo() == deleteNo) {
+                System.out.printf("==== %d번 motivation 삭제 =====\n", deleteNo);
+                all.remove(motivation);
+                System.out.printf("%d번 motivation이 삭제 되었습니다.\n", deleteNo);
+                System.out.println("------------------------------");
+                return;
+            }
+        }
+
+        System.out.println("존재하지 않는 motivation입니다.");
+        System.out.println("------------------------------");
+    }
+
 }
