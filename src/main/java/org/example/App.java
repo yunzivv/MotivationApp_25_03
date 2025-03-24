@@ -36,9 +36,9 @@ public class App {
 
                 motivationController.list();
 
-            } else if (cmd.contains("modify")) {
+            } else if (cmd.contains("edit")) {
 
-                motivationController.modify(cmd);
+                motivationController.edit(cmd);
 
             } else if (cmd.startsWith("detail")) {
 
