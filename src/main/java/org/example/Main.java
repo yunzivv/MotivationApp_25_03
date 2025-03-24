@@ -1,40 +1,39 @@
 package org.example;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
 
 // motivation 실행용
 public class Main {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+        Container.init();
 
+        // 여기부터 구현할 것
         // 회원가입 또는 로그인
         System.out.print("회원가입 / 로그인 : ");
-        String membership = sc.nextLine();
+        String membership = Container.getScanner().nextLine();
         boolean login = false;
 
         Member member = new Member();
 
         if (membership.equals("회원가입")) {
 
-            member.SignUp(sc);
-            login = member.Login(sc);
+            member.SignUp();
+            login = member.Login();
         }
 
         if (membership.equals("로그인")) {
 
-            login = member.Login(sc);
+            login = member.Login();
         }
 
-//        로그인에 성공했을 경우만 앱을 실행할 수 있게
-//        if (login) {
-//            new App(sc).run();
-//        }
+        // 로그인에 성공했을 경우만 앱을 실행할 수 있게
+        if (login) {
+            new App().run();
+        }
+        // 여기까지 미완성
 
-        new App(sc).run();
+        new App().run();
 
-        sc.close();
+        Container.close();
     }
 }
 
@@ -45,17 +44,17 @@ class Member {
 
     Member() {}
 
-    public void SignUp(Scanner sc) {
+    public void SignUp() {
         System.out.println("========== Sign Up ===========");
         System.out.print("이름 : ");
-        String name = sc.nextLine();
+        String name = Container.getScanner().nextLine();
         System.out.print("아이디 : ");
-        String ID = sc.nextLine();
+        String ID = Container.getScanner().nextLine();
         System.out.print("비밀번호 : ");
-        String PW = sc.nextLine();
+        String PW = Container.getScanner().nextLine();
         System.out.println("");
 
-//        구현할 것
+//        // 구현할 것
 //        for (회원객체 배열 순회) {
 //            if ( 회원의 ID와 중복된다면 ) {
 //              System.out.println("중복된 아이디입니다.");
@@ -69,13 +68,13 @@ class Member {
         this.PW = PW;
     }
 
-    public boolean Login(Scanner sc) {
+    public boolean Login() {
         System.out.println("========== Log in ============");
 
         System.out.print("아이디 : ");
-        String ID = sc.nextLine();
+        String ID = Container.getScanner().nextLine();
         System.out.print("비밀번호 : ");
-        String PW = sc.nextLine();
+        String PW = Container.getScanner().nextLine();
 
         if (ID.equals(this.ID) && PW.equals(this.PW)) {
             System.out.println("------------------------------");

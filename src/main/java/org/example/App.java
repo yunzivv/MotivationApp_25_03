@@ -1,36 +1,23 @@
 package org.example;
 
 import org.example.motivation.controller.MotivationController;
-import org.example.motivation.entity.Motivation;
 import org.example.system.controller.SystemController;
 
-import java.util.ArrayList;
-import java.util.Scanner;
-
 // motivation 기능용
-public class App { // main의 스캐너를 생성자에 넣어서 사용
-
-    // 명령어를 받기 위한 스캐너
-    private Scanner sc;
-
-    // 생성자
-    // Main 클래스에서 생성한 스캐너 클래스를 매개변수로 받아 스캐너 사용이 가능
-    public App(Scanner sc) {
-        this.sc = sc;
-    }
+public class App {
 
     public void run() {
 
         System.out.println("====== motivation 실행 =======");
 
         SystemController systemController = new SystemController();
-        MotivationController motivationController = new MotivationController(sc);
+        MotivationController motivationController = new MotivationController();
 
         System.out.println("help : 명령어 도움말");
 
         while (true) {
             System.out.print("\ncmd : ");
-            String cmd = sc.nextLine().trim();
+            String cmd = Container.getScanner().nextLine().trim();
 
             if (cmd.equals("exit")) {
 

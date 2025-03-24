@@ -1,17 +1,12 @@
 package org.example.motivation.controller;
 
+import org.example.Container;
 import org.example.motivation.entity.Motivation;
 
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class MotivationController {
-
-    private Scanner sc;
-
-    public MotivationController(Scanner sc) {
-        this.sc = sc;
-    }
 
     private ArrayList<Motivation> all = new ArrayList<>();
     int lastid = 1;
@@ -20,10 +15,10 @@ public class MotivationController {
     public void add() {
         System.out.println("====== motivation 추가 =======");
         System.out.print("source : ");
-        String source = sc.nextLine().trim();
+        String source = Container.getScanner().nextLine().trim();
 
         System.out.print("motivation : ");
-        String motivation = sc.nextLine().trim();
+        String motivation = Container.getScanner().nextLine().trim();
 
         Motivation a = new Motivation(lastid, source, motivation);
         all.add(a);
@@ -81,8 +76,8 @@ public class MotivationController {
             modifyNo = Integer.parseInt(cmd.split(" ")[1]);
         } else {
             System.out.print("수정할 motivation 번호를 입력하세요 : ");
-            modifyNo = sc.nextInt();
-            sc.nextLine();
+            modifyNo = Container.getScanner().nextInt();
+            Container.getScanner().nextLine();
         }
 
         for(Motivation motivation : all) {
@@ -90,11 +85,11 @@ public class MotivationController {
             if(motivation.getNo() == modifyNo) {
                 System.out.printf("==== %d번 motivation 수정 =====\n", modifyNo);
                 System.out.print("New source : ");
-                String newSource = sc.nextLine().trim();
+                String newSource = Container.getScanner().nextLine().trim();
                 motivation.setSource(newSource);
 
                 System.out.print("New motivation : ");
-                String newMotivation = sc.nextLine().trim();
+                String newMotivation = Container.getScanner().nextLine().trim();
                 motivation.setMotivation(newMotivation);
 
                 System.out.printf("%d번 motivation이 수정되었습니다.\n", modifyNo);
@@ -115,8 +110,8 @@ public class MotivationController {
             detailNo = Integer.parseInt(cmd.split(" ")[1]);
         } else {
             System.out.print("수정할 motivation 번호를 입력하세요 : ");
-            detailNo = sc.nextInt();
-            sc.nextLine();
+            detailNo = Container.getScanner().nextInt();
+            Container.getScanner().nextLine();
         }
 
         for(Motivation motivation : all) {
@@ -143,9 +138,9 @@ public class MotivationController {
             deleteNo = Integer.parseInt(cmd.split(" ")[1]);
         } else {
             System.out.print("삭제할 motivation 번호를 입력하세요 : ");
-            deleteNo = sc.nextInt();
+            deleteNo = Container.getScanner().nextInt();
             // 버퍼 비우기
-            sc.nextLine();
+            Container.getScanner().nextLine();
         }
 
         // all 객체 배열을 하나씩 검사해 입력받은 숫자와 같은 번호를 갖고 있는 지 검사
