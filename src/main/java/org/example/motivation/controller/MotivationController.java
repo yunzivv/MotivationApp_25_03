@@ -2,9 +2,6 @@ package org.example.motivation.controller;
 
 import org.example.Container;
 import org.example.motivation.Service.MotivationService;
-import org.example.motivation.entity.Motivation;
-import java.util.ArrayList;
-
 public class MotivationController {
 
     private MotivationService motivationService;
